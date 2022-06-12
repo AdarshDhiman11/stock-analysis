@@ -100,7 +100,7 @@ st.pyplot(fig)
 ![This is an image](https://github.com/AdarshDhiman11/stock-analysis/blob/master/final%20project%20images/Screenshot%20(110).png)
 
 ## Conclusion & Future Work
-
+This stock analysis will show you the 100 days moving average and 200 days moving average graph by which you will be able to analyze the average of stock price and can even predict by your own algorithms about the future of the stock. We can also improve this program by making it predict on its own if the price of the stock is going to be low or high in coming days. But for this we have to study the deep learning and ai.
 
 ## References
 
