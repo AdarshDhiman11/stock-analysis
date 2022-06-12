@@ -44,9 +44,15 @@ Visual Studio Code, also commonly referred to as VS Code,[9] is a source-code ed
 Stock market is one of the most important platforms to invest your money now a days. But to invest in stock market to get huge profit you have to study about the history of stock's. By this stock analysis system you will be able to find the past data of the stcoks in which you want to invest and can also analyze any stock you want by seeing the graph in a virtual and beautiful way.
 
 ## Proposed Solution
+1. Import the libraries.
+2. Declaire the start and the end dates during which you want the data of a particular stock.
+3. Take input from the user in the form of stock ticker.
+4. Plot the graph of stock with closing price and time chart.
+5. Plot the graph of stock with closing price and time chart 100MA.
+6. Plot the graph of stock with Closing Price vs Time chart with 100MA & 200MA.
 
+### Programe:
 ```
-
 # Importing the libraries
 import numpy as np
 import pandas as pd
