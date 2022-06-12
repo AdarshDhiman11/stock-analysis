@@ -46,28 +46,36 @@ Stock market is one of the most important platforms to invest your money now a d
 ## Proposed Solution
 
 ```
+
+# Importing the libraries
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import pandas_datareader as data
 import streamlit as st
 
+# Writing sreamlit codes of title to show our data on web app
 st.title('Stock Trend Prediction')
 
+# Declairing the start and the end dates during which you want the data of a particular stock
 start = '2010-01-01'
 end = '2019-12-31'
 
+# Taking input from the user in the form of stock ticker
 user_input = st.text_input('Enter Stock Ticker', 'AAPL')
 df = data.DataReader(user_input, 'yahoo', start, end)
 
+# Writing sreamlit codes of subheader and write to show our data on web app
 st.subheader('Data from 2010-2019')
 st.write(df.describe())
 
+# Ploting the graph of stock with closing price and time chart
 st.subheader('Closing Price vs Time chart')
 fig = plt.figure(figsize = (12,6))
 plt.plot(df.Close)
 st.pyplot(fig)
 
+# Ploting the graph of stock with closing price and time chart 100MA
 st.subheader('Closing Price vs Time chart 100MA')
 ma100 = df.Close.rolling(100).mean()
 fig = plt.figure(figsize = (12,6))
@@ -75,6 +83,7 @@ plt.plot(df.Close)
 plt.plot(ma100,'r')
 st.pyplot(fig)
 
+# Ploting the graph of stock with Closing Price vs Time chart with 100MA & 200MA
 st.subheader('Closing Price vs Time chart with 100MA & 200MA')
 ma200 = df.Close.rolling(200).mean()
 fig = plt.figure(figsize = (12,6))
@@ -83,3 +92,19 @@ plt.plot(ma100,'r')
 plt.plot(ma200,'g')
 st.pyplot(fig)
 ```
+
+## Result
+![This is an image](https://github.com/AdarshDhiman11/stock-analysis/blob/master/final%20project%20images/Screenshot%20(107).png)
+![This is an image](https://github.com/AdarshDhiman11/stock-analysis/blob/master/final%20project%20images/Screenshot%20(108).png)
+![This is an image](https://github.com/AdarshDhiman11/stock-analysis/blob/master/final%20project%20images/Screenshot%20(109).png)
+![This is an image](https://github.com/AdarshDhiman11/stock-analysis/blob/master/final%20project%20images/Screenshot%20(110).png)
+
+## Conclusion & Future Work
+
+
+## References
+
+1. Youtube
+2. Geeks For Geeks
+3. Kaggle
+4. Google
