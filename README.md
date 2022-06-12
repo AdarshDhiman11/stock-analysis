@@ -1,4 +1,6 @@
 # Stock Analysis
+
+## Introduction
 ### Abstract:
 In this data science project we are going to make a stock analysis project in which people can get the past data of any stock to analyse and predict the future trend of that stock.This project can show the high,low,close,start of prices of stocks in a particular period of time in a graphical manner.To get the data of a particular stock 
 we uses a stock ticker which takes the data from pakage pandas_datareader.
@@ -33,3 +35,51 @@ Pandas Datareader is a Python package that allows us to create a pandas DataFram
 A faster way to build and share data apps.Streamlit turns data scripts into shareable web apps in minutes.All in pure Python. No front‑end experience required.
 
 Streamlit is an open source app framework in Python language. It helps us create web apps for data science and machine learning in a short time. It is compatible with major Python libraries such as scikit-learn, Keras, PyTorch, SymPy(latex), NumPy, pandas, Matplotlib etc.
+
+### Code Editor
+#### VS Code
+Visual Studio Code, also commonly referred to as VS Code,[9] is a source-code editor made by Microsoft for Windows, Linux and macOS.[10] Features include support for debugging, syntax highlighting, intelligent code completion, snippets, code refactoring, and embedded Git. Users can change the theme, keyboard shortcuts, preferences, and install extensions that add additional functionality.
+
+## Problem Statement
+Stock market is one of the most important platforms to invest your money now a days. But to invest in stock market to get huge profit you have to study about the history of stock's. By this stock analysis system you will be able to find the past data of the stcoks in which you want to invest and can also analyze any stock you want by seeing the graph in a virtual and beautiful way.
+
+## Proposed Solution
+
+```
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import pandas_datareader as data
+import streamlit as st
+
+st.title('Stock Trend Prediction')
+
+start = '2010-01-01'
+end = '2019-12-31'
+
+user_input = st.text_input('Enter Stock Ticker', 'AAPL')
+df = data.DataReader(user_input, 'yahoo', start, end)
+
+st.subheader('Data from 2010-2019')
+st.write(df.describe())
+
+st.subheader('Closing Price vs Time chart')
+fig = plt.figure(figsize = (12,6))
+plt.plot(df.Close)
+st.pyplot(fig)
+
+st.subheader('Closing Price vs Time chart 100MA')
+ma100 = df.Close.rolling(100).mean()
+fig = plt.figure(figsize = (12,6))
+plt.plot(df.Close)
+plt.plot(ma100,'r')
+st.pyplot(fig)
+
+st.subheader('Closing Price vs Time chart with 100MA & 200MA')
+ma200 = df.Close.rolling(200).mean()
+fig = plt.figure(figsize = (12,6))
+plt.plot(df.Close)
+plt.plot(ma100,'r')
+plt.plot(ma200,'g')
+st.pyplot(fig)
+```
